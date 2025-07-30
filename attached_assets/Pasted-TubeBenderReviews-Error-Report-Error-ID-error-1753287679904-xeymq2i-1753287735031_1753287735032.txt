@@ -1,0 +1,69 @@
+TubeBenderReviews Error Report
+=============================
+Error ID: error_1753287679904_xeymq2i6a
+Timestamp: 2025-07-23T16:22:07.423Z
+URL: https://06c8ffb5-7afe-425a-8d35-5ab49b7f9be7-00-16xmdhpb6cvjh.janeway.replit.dev/admin
+User Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36
+
+Error Details:
+--------------
+ReferenceError: X is not defined
+
+Stack Trace:
+------------
+ReferenceError: X is not defined
+    at https://06c8ffb5-7afe-425a-8d35-5ab49b7f9be7-00-16xmdhpb6cvjh.janeway.replit.dev/src/components/DiagnosticPanel.tsx:1049:77
+    at Array.map (<anonymous>)
+    at DiagnosticPanel (https://06c8ffb5-7afe-425a-8d35-5ab49b7f9be7-00-16xmdhpb6cvjh.janeway.replit.dev/src/components/DiagnosticPanel.tsx:1036:97)
+    at renderWithHooks (https://06c8ffb5-7afe-425a-8d35-5ab49b7f9be7-00-16xmdhpb6cvjh.janeway.replit.dev/@fs/home/runner/workspace/node_modules/.vite/deps/chunk-WERSD76P.js?v=c91e80b6:11548:26)
+    at updateFunctionComponent (https://06c8ffb5-7afe-425a-8d35-5ab49b7f9be7-00-16xmdhpb6cvjh.janeway.replit.dev/@fs/home/runner/workspace/node_modules/.vite/deps/chunk-WERSD76P.js?v=c91e80b6:14582:28)
+    at beginWork (https://06c8ffb5-7afe-425a-8d35-5ab49b7f9be7-00-16xmdhpb6cvjh.janeway.replit.dev/@fs/home/runner/workspace/node_modules/.vite/deps/chunk-WERSD76P.js?v=c91e80b6:15924:22)
+    at beginWork$1 (https://06c8ffb5-7afe-425a-8d35-5ab49b7f9be7-00-16xmdhpb6cvjh.janeway.replit.dev/@fs/home/runner/workspace/node_modules/.vite/deps/chunk-WERSD76P.js?v=c91e80b6:19753:22)
+    at performUnitOfWork (https://06c8ffb5-7afe-425a-8d35-5ab49b7f9be7-00-16xmdhpb6cvjh.janeway.replit.dev/@fs/home/runner/workspace/node_modules/.vite/deps/chunk-WERSD76P.js?v=c91e80b6:19198:20)
+    at workLoopSync (https://06c8ffb5-7afe-425a-8d35-5ab49b7f9be7-00-16xmdhpb6cvjh.janeway.replit.dev/@fs/home/runner/workspace/node_modules/.vite/deps/chunk-WERSD76P.js?v=c91e80b6:19137:13)
+    at renderRootSync (https://06c8ffb5-7afe-425a-8d35-5ab49b7f9be7-00-16xmdhpb6cvjh.janeway.replit.dev/@fs/home/runner/workspace/node_modules/.vite/deps/chunk-WERSD76P.js?v=c91e80b6:19116:15)
+
+Component Stack:
+----------------
+
+    at DiagnosticPanel (https://06c8ffb5-7afe-425a-8d35-5ab49b7f9be7-00-16xmdhpb6cvjh.janeway.replit.dev/src/components/DiagnosticPanel.tsx:29:41)
+    at div
+    at https://06c8ffb5-7afe-425a-8d35-5ab49b7f9be7-00-16xmdhpb6cvjh.janeway.replit.dev/@fs/home/runner/workspace/node_modules/.vite/deps/chunk-GVTGVYSA.js?v=c91e80b6:42:13
+    at Presence (https://06c8ffb5-7afe-425a-8d35-5ab49b7f9be7-00-16xmdhpb6cvjh.janeway.replit.dev/@fs/home/runner/workspace/node_modules/.vite/deps/chunk-WKPV6L3N.js?v=c91e80b6:24:11)
+    at https://06c8ffb5-7afe-425a-8d35-5ab49b7f9be7-00-16xmdhpb6cvjh.janeway.replit.dev/@fs/home/runner/workspace/node_modules/.vite/deps/@radix-ui_react-tabs.js?v=c91e80b6:385:13
+    at _c5 (https://06c8ffb5-7afe-425a-8d35-5ab49b7f9be7-00-16xmdhpb6cvjh.janeway.replit.dev/src/components/ui/tabs.tsx:72:12)
+    at div
+    at https://06c8ffb5-7afe-425a-8d35-5ab49b7f9be7-00-16xmdhpb6cvjh.janeway.replit.dev/@fs/home/runner/workspace/node_modules/.vite/deps/chunk-GVTGVYSA.js?v=c91e80b6:42:13
+    at Provider (https://06c8ffb5-7afe-425a-8d35-5ab49b7f9be7-00-16xmdhpb6cvjh.janeway.replit.dev/@fs/home/runner/workspace/node_modules/.vite/deps/chunk-PLT6GTVM.js?v=c91e80b6:38:15)
+    at https://06c8ffb5-7afe-425a-8d35-5ab49b7f9be7-00-16xmdhpb6cvjh.janeway.replit.dev/@fs/home/runner/workspace/node_modules/.vite/deps/@radix-ui_react-tabs.js?v=c91e80b6:263:7
+    at div
+    at ErrorBoundary (https://06c8ffb5-7afe-425a-8d35-5ab49b7f9be7-00-16xmdhpb6cvjh.janeway.replit.dev/src/components/ErrorBoundary.tsx:11:5)
+    at Admin (https://06c8ffb5-7afe-425a-8d35-5ab49b7f9be7-00-16xmdhpb6cvjh.janeway.replit.dev/src/pages/admin.tsx:35:28)
+    at RequireAuth (https://06c8ffb5-7afe-425a-8d35-5ab49b7f9be7-00-16xmdhpb6cvjh.janeway.replit.dev/src/hooks/use-auth.tsx:114:31)
+    at Route (https://06c8ffb5-7afe-425a-8d35-5ab49b7f9be7-00-16xmdhpb6cvjh.janeway.replit.dev/@fs/home/runner/workspace/node_modules/.vite/deps/wouter.js?v=c91e80b6:323:16)
+    at Switch (https://06c8ffb5-7afe-425a-8d35-5ab49b7f9be7-00-16xmdhpb6cvjh.janeway.replit.dev/@fs/home/runner/workspace/node_modules/.vite/deps/wouter.js?v=c91e80b6:379:17)
+    at main
+    at div
+    at Router
+    at Provider (https://06c8ffb5-7afe-425a-8d35-5ab49b7f9be7-00-16xmdhpb6cvjh.janeway.replit.dev/@fs/home/runner/workspace/node_modules/.vite/deps/chunk-PLT6GTVM.js?v=c91e80b6:38:15)
+    at TooltipProvider (https://06c8ffb5-7afe-425a-8d35-5ab49b7f9be7-00-16xmdhpb6cvjh.janeway.replit.dev/@fs/home/runner/workspace/node_modules/.vite/deps/@radix-ui_react-tooltip.js?v=c91e80b6:61:5)
+    at AuthProvider (https://06c8ffb5-7afe-425a-8d35-5ab49b7f9be7-00-16xmdhpb6cvjh.janeway.replit.dev/src/hooks/use-auth.tsx:22:32)
+    at QueryClientProvider (https://06c8ffb5-7afe-425a-8d35-5ab49b7f9be7-00-16xmdhpb6cvjh.janeway.replit.dev/@fs/home/runner/workspace/node_modules/.vite/deps/@tanstack_react-query.js?v=c91e80b6:2805:3)
+    at App
+
+Additional Info:
+----------------
+{
+  "localStorage": {
+    "eruda-entry-button": "{\"rememberPos\":true,\"pos\":{\"x\":266,\"y\":848}}",
+    "admin_user": "{\"id\":1,\"username\":\"tbradmin\",\"email\":\"tbradmin@tubebenderreviews.com\",\"role\":\"admin\",\"isActive\":true,\"lastLogin\":\"2025-07-23T16:21:02.263Z\",\"createdAt\":\"2025-07-23T15:29:24.929Z\",\"updatedAt\":\"2025-07-23T15:29:24.929Z\"}",
+    "debug_test": "{\"test\":true,\"timestamp\":1753286463727}",
+    "eruda-dev-tools": "{\"transparency\":1,\"displaySize\":20,\"theme\":\"Atom One Dark\"}",
+    "eruda-console": "{\"asyncRender\":true,\"catchGlobalErr\":true,\"jsExecution\":true,\"overrideConsole\":true,\"displayExtraInfo\":false,\"displayUnenumerable\":true,\"displayGetterVal\":true,\"lazyEvaluation\":true,\"displayIfErr\":false,\"maxLogNum\":\"infinite\"}",
+    "eruda-resources": "{\"hideErudaSetting\":true,\"observeElement\":true}",
+    "eruda-elements": "{\"overrideEventTarget\":true}",
+    "react_errors": "[{\"errorId\":\"error_1753287679904_xeymq2i6a\",\"timestamp\":\"2025-07-23T16:21:19.906Z\",\"error\":{\"name\":\"ReferenceError\",\"message\":\"X is not defined\",\"stack\":\"ReferenceError: X is not defined\\n    at https://06c8ffb5-7afe-425a-8d35-5ab49b7f9be7-00-16xmdhpb6cvjh.janeway.replit.dev/src/components/DiagnosticPanel.tsx:1049:77\\n    at Array.map (<anonymous>)\\n    at DiagnosticPanel (https://06c8ffb5-7afe-425a-8d35-5ab49b7f9be7-00-16xmdhpb6cvjh.janeway.replit.dev/src/components/DiagnosticPanel.tsx:1036:97)\\n    at renderWithHooks (https://06c8ffb5-7afe-425a-8d35-5ab49b7f9be7-00-16xmdhpb6cvjh.janeway.replit.dev/@fs/home/runner/workspace/node_modules/.vite/deps/chunk-WERSD76P.js?v=c91e80b6:11548:26)\\n    at updateFunctionComponent (https://06c8ffb5-7afe-425a-8d35-5ab49b7f9be7-00-16xmdhpb6cvjh.janeway.replit.dev/@fs/home/runner/workspace/node_modules/.vite/deps/chunk-WERSD76P.js?v=c91e80b6:14582:28)\\n    at beginWork (https://06c8ffb5-7afe-425a-8d35-5ab49b7f9be7-00-16xmdhpb6cvjh.janeway.replit.dev/@fs/home/runner/workspace/node_modules/.vite/deps/chunk-WERSD76P.js?v=c91e80b6:15924:22)\\n    at beginWork$1 (https://06c8ffb5-7afe-425a-8d35-5ab49b7f9be7-00-16xmdhpb6cvjh.janeway.replit.dev/@fs/home/runner/workspace/node_modules/.vite/deps/chunk-WERSD76P.js?v=c91e80b6:19753:22)\\n    at performUnitOfWork (https://06c8ffb5-7afe-425a-8d35-5ab49b7f9be7-00-16xmdhpb6cvjh.janeway.replit.dev/@fs/home/runner/workspace/node_modules/.vite/deps/chunk-WERSD76P.js?v=c91e80b6:19198:20)\\n    at workLoopSync (https://06c8ffb5-7afe-425a-8d35-5ab49b7f9be7-00-16xmdhpb6cvjh.janeway.replit.dev/@fs/home/runner/workspace/node_modules/.vite/deps/chunk-WERSD76P.js?v=c91e80b6:19137:13)\\n    at renderRootSync (https://06c8ffb5-7afe-425a-8d35-5ab49b7f9be7-00-16xmdhpb6cvjh.janeway.replit.dev/@fs/home/runner/workspace/node_modules/.vite/deps/chunk-WERSD76P.js?v=c91e80b6:19116:15)\"},\"errorInfo\":{\"componentStack\":\"\\n    at DiagnosticPanel (https://06c8ffb5-7afe-425a-8d35-5ab49b7f9be7-00-16xmdhpb6cvjh.janeway.replit.dev/src/components/DiagnosticPanel.tsx:29:41)\\n    at div\\n    at https://06c8ffb5-7afe-425a-8d35-5ab49b7f9be7-00-16xmdhpb6cvjh.janeway.replit.dev/@fs/home/runner/workspace/node_modules/.vite/deps/chunk-GVTGVYSA.js?v=c91e80b6:42:13\\n    at Presence (https://06c8ffb5-7afe-425a-8d35-5ab49b7f9be7-00-16xmdhpb6cvjh.janeway.replit.dev/@fs/home/runner/workspace/node_modules/.vite/deps/chunk-WKPV6L3N.js?v=c91e80b6:24:11)\\n    at https://06c8ffb5-7afe-425a-8d35-5ab49b7f9be7-00-16xmdhpb6cvjh.janeway.replit.dev/@fs/home/runner/workspace/node_modules/.vite/deps/@radix-ui_react-tabs.js?v=c91e80b6:385:13\\n    at _c5 (https://06c8ffb5-7afe-425a-8d35-5ab49b7f9be7-00-16xmdhpb6cvjh.janeway.replit.dev/src/components/ui/tabs.tsx:72:12)\\n    at div\\n    at https://06c8ffb5-7afe-425a-8d35-5ab49b7f9be7-00-16xmdhpb6cvjh.janeway.replit.dev/@fs/home/runner/workspace/node_modules/.vite/deps/chunk-GVTGVYSA.js?v=c91e80b6:42:13\\n    at Provider (https://06c8ffb5-7afe-425a-8d35-5ab49b7f9be7-00-16xmdhpb6cvjh.janeway.replit.dev/@fs/home/runner/workspace/node_modules/.vite/deps/chunk-PLT6GTVM.js?v=c91e80b6:38:15)\\n    at https://06c8ffb5-7afe-425a-8d35-5ab49b7f9be7-00-16xmdhpb6cvjh.janeway.replit.dev/@fs/home/runner/workspace/node_modules/.vite/deps/@radix-ui_react-tabs.js?v=c91e80b6:263:7\\n    at div\\n    at ErrorBoundary (https://06c8ffb5-7afe-425a-8d35-5ab49b7f9be7-00-16xmdhpb6cvjh.janeway.replit.dev/src/components/ErrorBoundary.tsx:11:5)\\n    at Admin (https://06c8ffb5-7afe-425a-8d35-5ab49b7f9be7-00-16xmdhpb6cvjh.janeway.replit.dev/src/pages/admin.tsx:35:28)\\n    at RequireAuth (https://06c8ffb5-7afe-425a-8d35-5ab49b7f9be7-00-16xmdhpb6cvjh.janeway.replit.dev/src/hooks/use-auth.tsx:114:31)\\n    at Route (https://06c8ffb5-7afe-425a-8d35-5ab49b7f9be7-00-16xmdhpb6cvjh.janeway.replit.dev/@fs/home/runner/workspace/node_modules/.vite/deps/wouter.js?v=c91e80b6:323:16)\\n    at Switch (https://06c8ffb5-7afe-425a-8d35-5ab49b7f9be7-00-16xmdhpb6cvjh.janeway.replit.dev/@fs/home/runner/workspace/node_modules/.vite/deps/wouter.js?v=c91e80b6:379:17)\\n    at main\\n    at div\\n    at Router\\n    at Provider (https://06c8ffb5-7afe-425a-8d35-5ab49b7f9be7-00-16xmdhpb6cvjh.janeway.replit.dev/@fs/home/runner/workspace/node_modules/.vite/deps/chunk-PLT6GTVM.js?v=c91e80b6:38:15)\\n    at TooltipProvider (https://06c8ffb5-7afe-425a-8d35-5ab49b7f9be7-00-16xmdhpb6cvjh.janeway.replit.dev/@fs/home/runner/workspace/node_modules/.vite/deps/@radix-ui_react-tooltip.js?v=c91e80b6:61:5)\\n    at AuthProvider (https://06c8ffb5-7afe-425a-8d35-5ab49b7f9be7-00-16xmdhpb6cvjh.janeway.replit.dev/src/hooks/use-auth.tsx:22:32)\\n    at QueryClientProvider (https://06c8ffb5-7afe-425a-8d35-5ab49b7f9be7-00-16xmdhpb6cvjh.janeway.replit.dev/@fs/home/runner/workspace/node_modules/.vite/deps/@tanstack_react-query.js?v=c91e80b6:2805:3)\\n    at App\"},\"url\":\"https://06c8ffb5-7afe-425a-8d35-5ab49b7f9be7-00-16xmdhpb6cvjh.janeway.replit.dev/admin\",\"userAgent\":\"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36\"}]",
+    "auth_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidXNlcm5hbWUiOiJ0YnJhZG1pbiIsImVtYWlsIjoidGJyYWRtaW5AdHViZWJlbmRlcnJldmlld3MuY29tIiwicm9sZSI6ImFkbWluIiwiaWF0IjoxNzUzMjg3NjYyLCJleHAiOjE3NTMzNzQwNjJ9.OEQyKXit-q07i24b65MDFFOey6Fsob6dAgU5mYoOS14"
+  },
+  "sessionStorage": {}
+}
