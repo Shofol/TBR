@@ -1,0 +1,38 @@
+[13:41:32.317] Running build in Washington, D.C., USA (East) – iad1
+[13:41:32.317] Build machine configuration: 4 cores, 8 GB
+[13:41:32.333] Cloning github.com/RogueFabrication/TubeBenderReviews (Branch: main, Commit: d5a8d47)
+[13:41:32.340] Skipping build cache, deployment was triggered without cache.
+[13:41:32.912] Cloning completed: 579.000ms
+[13:41:34.678] Running "vercel build"
+[13:41:35.137] Vercel CLI 44.6.4
+[13:41:35.702] Running "install" command: `npm install`...
+[13:41:38.632] npm error code ERESOLVE
+[13:41:38.632] npm error ERESOLVE could not resolve
+[13:41:38.632] npm error
+[13:41:38.632] npm error While resolving: @tailwindcss/vite@4.1.3
+[13:41:38.632] npm error Found: vite@7.0.6
+[13:41:38.632] npm error node_modules/vite
+[13:41:38.633] npm error   dev vite@"^7.0.6" from the root project
+[13:41:38.633] npm error
+[13:41:38.633] npm error Could not resolve dependency:
+[13:41:38.633] npm error peer vite@"^5.2.0 || ^6" from @tailwindcss/vite@4.1.3
+[13:41:38.633] npm error node_modules/@tailwindcss/vite
+[13:41:38.633] npm error   dev @tailwindcss/vite@"^4.1.3" from the root project
+[13:41:38.633] npm error
+[13:41:38.633] npm error Conflicting peer dependency: vite@6.3.5
+[13:41:38.633] npm error node_modules/vite
+[13:41:38.633] npm error   peer vite@"^5.2.0 || ^6" from @tailwindcss/vite@4.1.3
+[13:41:38.633] npm error   node_modules/@tailwindcss/vite
+[13:41:38.633] npm error     dev @tailwindcss/vite@"^4.1.3" from the root project
+[13:41:38.633] npm error
+[13:41:38.633] npm error Fix the upstream dependency conflict, or retry
+[13:41:38.633] npm error this command with --force or --legacy-peer-deps
+[13:41:38.634] npm error to accept an incorrect (and potentially broken) dependency resolution.
+[13:41:38.634] npm error
+[13:41:38.634] npm error
+[13:41:38.634] npm error For a full report see:
+[13:41:38.634] npm error /vercel/.npm/_logs/2025-07-30T20_41_35_938Z-eresolve-report.txt
+[13:41:38.634] npm error A complete log of this run can be found in: /vercel/.npm/_logs/2025-07-30T20_41_35_938Z-debug-0.log
+[13:41:38.669] Error: Command "npm install" exited with 1
+[13:41:38.865] 
+[13:41:41.983] Exiting build container
