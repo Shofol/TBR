@@ -36,7 +36,7 @@ export function getHostingConfig() {
   let config = {
     // Default configuration
     host: isProduction ? '127.0.0.1' : '0.0.0.0',
-    port: process.env.PORT ? parseInt(process.env.PORT, 10) : 5000,
+    port: process.env.PORT ? parseInt(process.env.PORT, 10) : 3000,
     maxConnections: 100,
     keepAliveTimeout: 5000,
     headersTimeout: 60000,
@@ -61,7 +61,7 @@ export function getHostingConfig() {
     config = {
       ...config,
       host: '0.0.0.0', // Replit requires binding to all interfaces
-      port: 5000, // Replit typically uses port 5000
+      port: 3000, // Use port 3000 to avoid conflicts
       maxConnections: 100,
       keepAliveTimeout: 5000
     };
