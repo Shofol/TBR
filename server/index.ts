@@ -144,6 +144,11 @@ app.use((req, res, next) => {
     // Simple production static file serving for Vercel
     const { serveStatic } = await import("./vite");
     serveStatic(app);
+    
+    // Add a simple root route handler for debugging
+    app.get('/', (req, res) => {
+      res.send('Server is running! Check /api/health for status.');
+    });
   }
 
     // Simple server startup for Vercel
