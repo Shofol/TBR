@@ -787,7 +787,11 @@ export class MemStorage implements IStorage {
       priceMax: insertTubeBender.priceMax || null,
       userReviewCount: insertTubeBender.userReviewCount || null,
       componentPricing: insertTubeBender.componentPricing || null,
-      isRecommended: insertTubeBender.isRecommended ?? false
+      isRecommended: insertTubeBender.isRecommended ?? false,
+      wallThicknessCapacity: insertTubeBender.wallThicknessCapacity || null,
+      sBendCapability: insertTubeBender.sBendCapability ?? false,
+      userReviewRating: insertTubeBender.userReviewRating || null,
+      importantNotes: insertTubeBender.importantNotes || []
     };
     this.tubeBenders.set(id, tubeBender);
     return tubeBender;
@@ -958,7 +962,12 @@ export class MemStorage implements IStorage {
     // For memory storage, just return the settings
     return {
       id: 1,
-      ...settings,
+      adminEmail: settings.adminEmail,
+      smtpHost: settings.smtpHost || null,
+      smtpPort: settings.smtpPort || null,
+      smtpUser: settings.smtpUser || null,
+      smtpPassword: settings.smtpPassword || null,
+      smtpSecure: settings.smtpSecure ?? true,
       createdAt: new Date().toISOString(),
       updatedAt: new Date().toISOString()
     };
@@ -982,7 +991,10 @@ export class MemStorage implements IStorage {
     // For memory storage, just return the settings
     return {
       id: 1,
-      ...settings,
+      message: settings.message || "",
+      isActive: settings.isActive ?? false,
+      backgroundColor: settings.backgroundColor || "#dc2626",
+      textColor: settings.textColor || "#ffffff",
       createdAt: new Date().toISOString(),
       updatedAt: new Date().toISOString()
     };
@@ -993,9 +1005,11 @@ export class MemStorage implements IStorage {
     // Return default debug settings for memory storage
     return {
       id: 1,
-      isEnabled: false,
+      enabled: false,
       logLevel: "info",
-      createdAt: new Date().toISOString(),
+      maxLogEntries: 1000,
+      enableHttpLogging: true,
+      enablePerformanceLogging: true,
       updatedAt: new Date().toISOString()
     };
   }
@@ -1004,8 +1018,11 @@ export class MemStorage implements IStorage {
     // For memory storage, just return the settings
     return {
       id: 1,
-      ...settings,
-      createdAt: new Date().toISOString(),
+      enabled: settings.enabled ?? true,
+      logLevel: settings.logLevel || "info",
+      maxLogEntries: settings.maxLogEntries || 1000,
+      enableHttpLogging: settings.enableHttpLogging ?? true,
+      enablePerformanceLogging: settings.enablePerformanceLogging ?? true,
       updatedAt: new Date().toISOString()
     };
   }
