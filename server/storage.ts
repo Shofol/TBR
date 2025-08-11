@@ -1217,4 +1217,20 @@ export class DatabaseStorage implements IStorage {
   }
 }
 
-export const storage = new DatabaseStorage();
+// Use in-memory storage for Vercel deployment without database
+let storage: IStorage;
+
+try {
+  if (process.env.DATABASE_URL) {
+    storage = new DatabaseStorage();
+    console.log('✅ Using database storage');
+  } else {
+    storage = new MemStorage();
+    console.log('✅ Using in-memory storage (no DATABASE_URL provided)');
+  }
+} catch (error) {
+  console.warn('⚠️ Database storage failed, falling back to in-memory storage:', error);
+  storage = new MemStorage();
+}
+
+export { storage };

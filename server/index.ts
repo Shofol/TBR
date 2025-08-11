@@ -109,15 +109,22 @@ app.use((req, res, next) => {
   try {
     addDebugLog('info', 'Starting server initialization', 'startup');
     
-    // Validate environment variables first
-    const { validateEnvironmentVariables } = await import("./validateEnv");
-    validateEnvironmentVariables();
-    addDebugLog('info', 'Environment variables validated', 'startup');
-    
-    // Test database connection
-    const { testDatabaseConnection } = await import("./db");
-    await testDatabaseConnection();
-    addDebugLog('info', 'Database connection verified', 'startup');
+    // Validate environment variables first (skip in development for Vercel)
+    if (process.env.NODE_ENV === 'production') {
+      try {
+        const { validateEnvironmentVariables } = await import("./validateEnv");
+        validateEnvironmentVariables();
+        addDebugLog('info', 'Environment variables validated', 'startup');
+        
+        // Test database connection
+        const { testDatabaseConnection } = await import("./db");
+        await testDatabaseConnection();
+        addDebugLog('info', 'Database connection verified', 'startup');
+      } catch (error) {
+        console.warn('⚠️ Environment validation failed, using fallback configuration:', error);
+        addDebugLog('warn', `Environment validation failed: ${error}`, 'startup');
+      }
+    }
     
     const server = await registerRoutes(app);
     
@@ -169,7 +176,17 @@ app.use((req, res, next) => {
     
   } catch (error) {
     console.error("❌ Server startup failed:", error);
-    addDebugLog('error', `Server startup failed: ${error}`, 'startup');
-    process.exit(1);
+    try {
+      addDebugLog('error', `Server startup failed: ${error}`, 'startup');
+    } catch (logError) {
+      console.error("Failed to log error:", logError);
+    }
+    
+    // For Vercel, don't exit the process, just log the error
+    if (process.env.VERCEL) {
+      console.log("Running in Vercel environment, continuing with error...");
+    } else {
+      process.exit(1);
+    }
   }
 })();

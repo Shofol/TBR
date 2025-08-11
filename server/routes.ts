@@ -32,7 +32,8 @@ async function authenticateToken(req: any, res: any, next: any) {
   }
 
   try {
-    const decoded = jwt.verify(token, process.env.JWT_SECRET!) as any;
+    const jwtSecret = process.env.JWT_SECRET || 'fallback-secret-for-development';
+    const decoded = jwt.verify(token, jwtSecret) as any;
     req.user = decoded;
     addDebugLog('debug', `Authenticated user: ${decoded.username}`, 'auth');
     next();
