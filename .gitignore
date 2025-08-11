@@ -109,3 +109,4 @@ deployment-*
 mysql-schema.sql
 ecosystem.config.js
 cookies.txt
+.vercel
