@@ -786,7 +786,8 @@ export class MemStorage implements IStorage {
       priceMin: insertTubeBender.priceMin || null,
       priceMax: insertTubeBender.priceMax || null,
       userReviewCount: insertTubeBender.userReviewCount || null,
-      componentPricing: insertTubeBender.componentPricing || null
+      componentPricing: insertTubeBender.componentPricing || null,
+      isRecommended: insertTubeBender.isRecommended ?? false
     };
     this.tubeBenders.set(id, tubeBender);
     return tubeBender;
@@ -935,6 +936,78 @@ export class MemStorage implements IStorage {
 
   async getAllAdmins(): Promise<AdminUser[]> {
     return Array.from(this.adminUsers.values());
+  }
+
+  // Email Settings
+  async getEmailSettings(): Promise<EmailSettings | undefined> {
+    // Return default email settings for memory storage
+    return {
+      id: 1,
+      adminEmail: "admin@example.com",
+      smtpHost: null,
+      smtpPort: null,
+      smtpUser: null,
+      smtpPassword: null,
+      smtpSecure: true,
+      createdAt: new Date().toISOString(),
+      updatedAt: new Date().toISOString()
+    };
+  }
+
+  async upsertEmailSettings(settings: InsertEmailSettings): Promise<EmailSettings> {
+    // For memory storage, just return the settings
+    return {
+      id: 1,
+      ...settings,
+      createdAt: new Date().toISOString(),
+      updatedAt: new Date().toISOString()
+    };
+  }
+
+  // Banner Settings
+  async getBannerSettings(): Promise<BannerSettings | undefined> {
+    // Return default banner settings for memory storage
+    return {
+      id: 1,
+      message: "",
+      isActive: false,
+      backgroundColor: "#dc2626",
+      textColor: "#ffffff",
+      createdAt: new Date().toISOString(),
+      updatedAt: new Date().toISOString()
+    };
+  }
+
+  async upsertBannerSettings(settings: InsertBannerSettings): Promise<BannerSettings> {
+    // For memory storage, just return the settings
+    return {
+      id: 1,
+      ...settings,
+      createdAt: new Date().toISOString(),
+      updatedAt: new Date().toISOString()
+    };
+  }
+
+  // Debug Settings
+  async getDebugSettings(): Promise<DebugSettings | undefined> {
+    // Return default debug settings for memory storage
+    return {
+      id: 1,
+      isEnabled: false,
+      logLevel: "info",
+      createdAt: new Date().toISOString(),
+      updatedAt: new Date().toISOString()
+    };
+  }
+
+  async updateDebugSettings(settings: InsertDebugSettings): Promise<DebugSettings> {
+    // For memory storage, just return the settings
+    return {
+      id: 1,
+      ...settings,
+      createdAt: new Date().toISOString(),
+      updatedAt: new Date().toISOString()
+    };
   }
 }
 
@@ -1095,6 +1168,31 @@ export class DatabaseStorage implements IStorage {
     } else {
       const [created] = await db
         .insert(bannerSettings)
+        .values(settings)
+        .returning();
+      return created;
+    }
+  }
+
+  // Debug Settings
+  async getDebugSettings(): Promise<DebugSettings | undefined> {
+    const [settings] = await db.select().from(debugSettings).limit(1);
+    return settings;
+  }
+
+  async updateDebugSettings(settings: InsertDebugSettings): Promise<DebugSettings> {
+    const existing = await this.getDebugSettings();
+    
+    if (existing) {
+      const [updated] = await db
+        .update(debugSettings)
+        .set({ ...settings, updatedAt: new Date().toISOString() })
+        .where(eq(debugSettings.id, existing.id))
+        .returning();
+      return updated;
+    } else {
+      const [created] = await db
+        .insert(debugSettings)
         .values(settings)
         .returning();
       return created;

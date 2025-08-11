@@ -72,9 +72,18 @@ export async function registerRoutes(app: Express): Promise<Server> {
     try {
       const tubeBenders = await storage.getTubeBenders();
       // Simple recommendation logic - highest scoring first
+      // Import the scoring algorithm to calculate scores
+      const { calculateTubeBenderScore } = await import('../client/src/lib/scoring-algorithm.js');
+      
       const recommended = tubeBenders
-        .sort((a: TubeBender, b: TubeBender) => b.overallScore - a.overallScore)
-        .slice(0, 3);
+        .map(bender => calculateTubeBenderScore(bender))
+        .sort((a, b) => b.totalScore - a.totalScore)
+        .slice(0, 3)
+        .map(scored => {
+          // Remove scoring data for API response
+          const { totalScore, scoreBreakdown, ...originalBender } = scored;
+          return originalBender;
+        });
       
       addDebugLog('debug', `Generated ${recommended.length} recommendations`, 'api');
       res.json(recommended);
