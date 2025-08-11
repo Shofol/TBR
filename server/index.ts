@@ -141,65 +141,25 @@ app.use((req, res, next) => {
   if (app.get("env") === "development") {
     await setupVite(app, server);
   } else {
-    // Enhanced production static file serving with fallbacks
-    const { serveStaticFiles, setupMemoryMonitoring, createHealthCheck } = await import("./production");
-    
-    // Setup memory monitoring for shared hosting
-    setupMemoryMonitoring();
-    
-    // Enhanced health check endpoint
-    app.get("/api/health", createHealthCheck());
-    
-    // Serve static files with multiple fallback locations
-    serveStaticFiles(app);
+    // Simple production static file serving for Vercel
+    const { serveStatic } = await import("./vite");
+    serveStatic(app);
   }
 
-    // Enhanced hosting environment detection and configuration
-    const { getHostingConfig, optimizeForHosting, gracefulShutdown, setupErrorHandling } = await import("./hosting");
-    const { config, hostingEnv } = getHostingConfig();
-    
-    // Apply hosting-specific optimizations
-    optimizeForHosting(server);
-    
-    // Setup environment-specific error handling
-    setupErrorHandling(hostingEnv);
-    
-    // Register shutdown handlers
-    const shutdownHandler = (signal: string) => gracefulShutdown(server, signal);
-    process.on('SIGTERM', () => shutdownHandler('SIGTERM'));
-    process.on('SIGINT', () => shutdownHandler('SIGINT'));
-    process.on('SIGUSR2', () => shutdownHandler('SIGUSR2')); // nodemon restart
-    
-    // Start server with hosting-optimized configuration
-    server.listen(config.port, config.host, () => {
+    // Simple server startup for Vercel
+    const port = process.env.PORT || 3000;
+    server.listen(port, () => {
       const env = process.env.NODE_ENV || 'development';
-      log(`🚀 Server running on ${config.host}:${config.port} (${env})`);
-      log(`📊 Memory usage: ${Math.round(process.memoryUsage().heapUsed / 1024 / 1024)}MB`);
-      log(`🏠 Hosting: ${Object.entries(hostingEnv).filter(([, v]) => v).map(([k]) => k).join(', ') || 'unknown'}`);
-      log(`🔧 Debug endpoint available at: http://${config.host}:${config.port}/__debug`);
+      log(`🚀 Server running on port ${port} (${env})`);
+      log(`🔧 Debug endpoint available at /__debug`);
       
-      addDebugLog('info', `Server started on ${config.host}:${config.port}`, 'startup');
-      addDebugLog('info', `Debug mode enabled - diagnostics available at /__debug`, 'startup');
+      addDebugLog('info', `Server started on port ${port}`, 'startup');
     });
     
-    // Enhanced server startup error handling
+    // Simple error handling
     server.on('error', (error: any) => {
-      if (error.code === 'EADDRINUSE') {
-        console.error(`❌ Port ${config.port} is already in use`);
-        if (hostingEnv.isPassenger || hostingEnv.isFastComet) {
-          console.error('💡 This may be normal for Passenger - it manages port assignment');
-        }
-        process.exit(1);
-      } else if (error.code === 'EACCES') {
-        console.error(`❌ Permission denied for port ${config.port}`);
-        if (hostingEnv.isFastComet) {
-          console.error('💡 Check cPanel Node.js App configuration for correct port assignment');
-        }
-        process.exit(1);
-      } else {
-        console.error('❌ Server error:', error);
-        process.exit(1);
-      }
+      console.error('❌ Server error:', error);
+      process.exit(1);
     });
     
   } catch (error) {
